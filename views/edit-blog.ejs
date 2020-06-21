@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+		<title>add blog</title>
+		<style>
+			body {
+				font-family: arial;
+				margin: 0;
+			}
+			nav {
+				background: #ff5353;
+				padding: 20px 10px;
+			}
+			nav ul {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 0;
+			}
+			nav li {
+				list-style-type: none;
+				display: inline-block;
+				margin: 0 10px 0 0;
+			}
+			nav a {
+				color: #fff;
+				font-size: 18px;
+				background: rgba(255, 255, 255, 0.2);
+				text-decoration: none;
+				padding: 10px;
+				display: block;
+			}
+			main,
+			header {
+				max-width: 960px;
+				margin: 30px auto;
+				padding: 0 10px;
+				color: #333;
+			}
+			main img {
+				width: 40px;
+				margin-right: 10px;
+				position: relative;
+				top: 12px;
+			}
+			main p {
+				display: inline-block;
+			}
+			form {
+				max-width: 500px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="/profile">go back to your profile</a></li>
+			</ul>
+		</nav>
+		<form method="POST">
+			<div class="form-group">
+				<label> Title fo your blog</label>
+				<input type="text" class="form-control" placeholder="title" name="title" value="<%=blog.title%>" />
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Example select</label>
+				<select class="form-control" name="condition">
+					<%if(blog.condition=='public'){%>
+					<option value="public">public</option>
+					<option value="private">private</option>
+					<%}else{%>
+					<option value="private">private</option>
+					<option value="public">public</option>
+					<%}%>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">write your blog</label>
+				<textarea class="form-control" rows="3" name="blog"><%=blog.blog%></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary block">Submit your changes</button>
+		</form>
+	</body>
+</html>
